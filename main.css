@@ -17,6 +17,18 @@ dl dd {
   margin-inline-start: 5px;
 }
 
+blockquote {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding: 1em;
+  background-color: #eaeaea;
+}
+
+ul {
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
 ul li {
   border-bottom: 1px solid;
   margin-bottom: 10px;
