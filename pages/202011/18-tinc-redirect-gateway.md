@@ -155,7 +155,7 @@ ping 通之后, 退出当前运行的`tinc`进程, 让`systemd`来管理`tinc`�
 ### 反思
 
 我为什么要写这篇文章呢? 明明如此简单, 只要在`client`节点添加`server-up`和`server-down`脚本就可以了的  
-这是因为[官方教程](https://www.tinc-vpn.org/examples/redirect-gateway/)里少了这句 `iptables -t nat -A POSTROUTING -j MASQUERADE` 导致我一直在琢磨哪里出错了, 明明 `Subnet = 0.0.0.0/0` 和 `echo 1 >/proc/sys/net/ipv4/ip_forward` 我都添加了, 为什么还是不能联网, 最后是姻缘巧合之下我发现我用 docker 搭建的 tinc 服务节点可以用来当作网关, 于是在它的配置里找到了不同之处, 这缺失的一句脚本 <https://github.com/vimagick/dockerfiles/blob/master/tinc/docker-entrypoint.sh#L13>
+这是因为[官方教程](https://www.tinc-vpn.org/examples/redirect-gateway/)里少了这句 `iptables -t nat -A POSTROUTING -j MASQUERADE` 导致我一直在琢磨哪里出错了, 明明 `Subnet = 0.0.0.0/0` 和 `echo 1 >/proc/sys/net/ipv4/ip_forward` 我都添加了, 为什么还是不能联网, 最后是因缘巧合之下我发现我用 docker 搭建的 tinc 服务节点可以用来当作网关, 于是在它的配置里找到了不同之处, 这缺失的一句脚本 <https://github.com/vimagick/dockerfiles/blob/master/tinc/docker-entrypoint.sh#L13>
 
 ## 一些提示
 
