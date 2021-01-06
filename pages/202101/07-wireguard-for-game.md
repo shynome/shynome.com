@@ -37,7 +37,13 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACC
 - 保存新增节点到配置文件中 `wg-quick save wg0`, 这样下次使用`wg-quick up wg0`这个节点也是可以连接的 (可以用`cat /etc/wireguard/wg0.conf`命令检查是否保存成功)
 - 移除客户端 `wg set wg0 peer 5XGYhOissgpuguerjnBQBqwzlcarOFm3MoC/zWFcvx0= remove`, 移除后也要记得保存不然重启`wg0`后又会出现
 
-### windows 客户端设置
+### 开机自启
+
+```sh
+systemctl enable wg-quick@wg0
+```
+
+## windows 客户端设置
 
 - 连接`wireguard`我用的是`TunSafe`绿色版, 注意绿色要安装`TunSafe-TAP`之后才能使用. <https://tunsafe.com/download> 拉到最下面就是绿色版的下载地址了
 - 国内外分流用的是 `<https://github.com/lmc999/auto-add-routes>`
