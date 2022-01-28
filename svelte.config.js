@@ -2,6 +2,8 @@
 import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
 
+const production = process.env.NODE_ENV !== 'development'
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -15,8 +17,8 @@ const config = {
 		target: '#svelte',
 
 		// full static
-		router: false,
-		hydrate: false,
+		router: !production,
+		hydrate: !production,
 	},
 }
 
