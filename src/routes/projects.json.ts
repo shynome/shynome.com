@@ -1,6 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit'
 import glob from 'glob-promise'
-import chunk from 'lodash.chunk'
 import fs from 'fs/promises'
 import YAML from 'yaml'
 
